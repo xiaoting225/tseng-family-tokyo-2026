@@ -1,0 +1,168 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f6f1e7"><link rel="manifest" href="manifest.webmanifest"><title>東京・鎌倉・箱根 2026</title><style>
+:root{--bg:#f6f1e7;--card:#fffaf2;--ink:#40382f;--muted:#82776a;--accent:#a14f39;--line:#ddd2c2}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC",sans-serif}main{max-width:520px;margin:auto;padding:20px 17px 95px}h1{font-family:Georgia,"Noto Serif TC",serif;font-size:30px;margin:8px 0}.ey{font-size:12px;letter-spacing:.17em;color:var(--muted)}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:17px;margin:12px 0}.card h2{font-size:18px;margin:0 0 12px}.tl{display:grid;grid-template-columns:58px 1fr;gap:9px}.t{font-weight:700}.i{padding-bottom:8px;border-bottom:1px dashed var(--line)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.btn{border:1px solid var(--line);border-radius:16px;padding:15px;text-align:center;background:var(--card);font-weight:650}.page{display:none}.active{display:block}.day{padding:13px 0;border-bottom:1px solid var(--line)}.muted{font-size:13px;color:var(--muted)}label{display:block;padding:9px 0;border-bottom:1px solid var(--line)}nav{position:fixed;bottom:0;left:0;right:0;background:#fffdf8ef;border-top:1px solid var(--line);display:flex;justify-content:center;padding-bottom:env(safe-area-inset-bottom)}nav button{width:25%;max-width:105px;border:0;background:transparent;padding:9px 2px;color:var(--muted);font-size:11px}nav b{font-size:20px;display:block}nav .on{color:var(--accent)}
+
+.menurow{display:flex;align-items:center;gap:12px;padding:15px 4px;border-bottom:1px solid var(--line);cursor:pointer}
+.menuicon{font-size:24px;width:34px;text-align:center}.menurow strong{display:block}.arrow{margin-left:auto;color:var(--muted)}
+.back{border:0;background:transparent;color:var(--accent);padding:0 0 12px;font-size:15px}
+.tabs{display:flex;gap:7px;overflow:auto;padding-bottom:8px}.tabs button{white-space:nowrap;border:1px solid var(--line);background:var(--card);border-radius:99px;padding:8px 12px;color:var(--ink)}.tabs button.sel{background:var(--ink);color:white}
+.place{padding:12px 0;border-bottom:1px solid var(--line)}textarea{width:100%;min-height:150px;border:1px solid var(--line);border-radius:14px;background:#fffdf8;padding:12px;font:inherit;color:var(--ink)}
+.smallinput{width:76px;border:1px solid var(--line);border-radius:8px;padding:5px}
+
+.daycard{padding:14px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.dayhead{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.daynum{font-weight:800}.route{font-size:13px;color:var(--muted);margin-top:5px}
+.badge{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:4px 8px;font-size:11px;color:var(--muted)}
+.mapbtn{display:inline-block;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:99px;padding:6px 10px;margin-top:7px;font-size:12px;background:#fffdf8}
+.notice{border-left:3px solid var(--accent);padding:8px 11px;background:#fff8ef;border-radius:8px;font-size:13px}
+.todaytag{display:inline-block;background:var(--accent);color:white;border-radius:99px;padding:4px 8px;font-size:11px}
+
+.hero{position:relative;margin:12px 0 16px;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#e9e0d3;aspect-ratio:16/10}
+.hero img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .35s ease}
+.herograd{position:absolute;inset:auto 0 0;padding:34px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.45));color:white;font-size:12px;letter-spacing:.08em}
+.dots{position:absolute;right:12px;bottom:12px;display:flex;gap:5px}.dot{width:6px;height:6px;border-radius:50%;background:#ffffff80}.dot.on{background:#fff}
+.linkrow{display:flex;gap:10px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line)}
+.linkrow:last-child{border-bottom:0}.linkrow a{color:var(--ink);font-weight:700;text-decoration:none}.linkrow small{display:block;color:var(--muted);margin-top:3px}
+</style></head><body><main>
+<section id="home" class="page active"><div class="ey">DECEMBER 2026 · 7天6夜</div><h1>曾家豪宅東京之旅 🇯🇵</h1><p class="muted">2026.12.01 — 12.07</p><div class="hero" id="hero"><img id="heroimg" alt="東京・鎌倉・箱根旅行照片"><div class="herograd">WINTER DAYS IN JAPAN<div class="dots" id="herodots"></div></div></div><p id="tripstatus" class="muted"></p><div class="card"><h2>🗼 DAY 01｜今天行程</h2><div class="tl"><div class="t">08:00</div><div class="i">✈️ 小港 → 成田</div><div class="t">14:00</div><div class="i">🚗 成田 → 銀座</div><div class="t">16:00</div><div class="i">🏨 入住・休息</div><div class="t">17:30</div><div class="i">🍽️ GINZA SIX 真田</div><div class="t">20:00</div><div class="i">🌃 六本木之丘展望台</div><div class="t">22:30</div><div class="i">🍜 宵夜 → ♨️ 泡湯</div></div></div><div class="grid"><div class="btn" onclick="go('days')">📅<br>七天行程</div><div class="btn" onclick="go('more')">💡<br>旅遊資訊</div><div class="btn" onclick="go('map')" style="grid-column:1/-1">🗺️<br>地點</div></div></section>
+<section id="days" class="page"><div class="ey">7 DAYS</div><h1>每日行程 📅</h1><div class="card" id="daysbox"></div><div id="daydetail"></div></section><section id="map" class="page"><div class="ey">MAP</div><h1>地點 🗺️</h1>
+<div class="tabs"><button class="sel" onclick="places('住宿',this)">🏨 住宿</button><button onclick="places('景點',this)">📍 景點</button><button onclick="places('飲食',this)">🍴 飲食</button><button onclick="places('購物',this)">🛍️ 購物</button></div>
+<div class="card" id="placebox"></div></section><section id="book" class="page"><div class="ey">TRAVEL BOOK</div><h1>旅遊書 📖</h1><div class="card"><h2>東京・鎌倉・箱根 2026</h2><p class="muted">完整 Canva 旅遊手冊・28頁</p><a href="Tokyo_Travel_2026.pdf" target="_blank" style="display:block;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center;font-weight:700">📖 開啟完整旅遊書</a><p class="muted">PDF 已收進 App，可離線開啟。</p></div></section><section id="more" class="page"><div class="ey">MORE INFO</div><h1>更多資訊 •••</h1><div class="card">
+<div class="menurow" onclick="go('packing')"><span class="menuicon">🧳</span><div><strong>行李清單</strong><span class="muted">衣物、盥洗、3C、證件與旅行用品</span></div><span class="arrow">›</span></div>
+<div class="menurow" onclick="go('promise')"><span class="menuicon">🤝</span><div><strong>行前宣誓</strong><span class="muted">旅行前一起看的小約定</span></div><span class="arrow">›</span></div>
+<div class="menurow" onclick="go('tips')"><span class="menuicon">💡</span><div><strong>旅遊提醒</strong><span class="muted">網路、支付、天氣、退稅與行李</span></div><span class="arrow">›</span></div>
+<div class="menurow" onclick="go('flight')"><span class="menuicon">✈️</span><div><strong>航班資訊</strong><span class="muted">去回程班機快速查看</span></div><span class="arrow">›</span></div>
+<div class="menurow" onclick="go('refs')"><span class="menuicon">🌐</span><div><strong>參考網站</strong><span class="muted">紅葉、美食、箱根運行與展望台購票</span></div><span class="arrow">›</span></div>
+<div class="menurow" onclick="go('book')"><span class="menuicon">📖</span><div><strong>旅遊書</strong><span class="muted">完整 Canva 旅遊手冊・28頁</span></div><span class="arrow">›</span></div>
+</div></section>
+
+<section id="packing" class="page"><button class="back" onclick="go('more')">‹ 返回更多資訊</button><h1>行李清單 🧳</h1>
+
+<div class="card check"><h2>✈️ 旅遊必備</h2>
+<label><input type="checkbox"> 護照</label>
+<label><input type="checkbox"> 日幣</label>
+<label><input type="checkbox"> 信用卡</label>
+<label><input type="checkbox"> 手機</label>
+<label><input type="checkbox"> 旅遊保險</label>
+<label><input type="checkbox"> VISIT JAPAN WEB 確認填寫</label>
+<label><input type="checkbox"> 機票預約資料</label>
+<label><input type="checkbox"> 飯店預約資料</label>
+<label><input type="checkbox"> 包車預約資料</label>
+</div>
+
+<div class="card check"><h2>🔌 電子產品</h2>
+<label><input type="checkbox"> 充電線、充電器</label>
+<label><input type="checkbox"> 行動電源</label>
+<label><input type="checkbox"> 手錶充電器</label>
+<label><input type="checkbox"> 耳機</label>
+</div>
+
+<div class="card check"><h2>🛫 其他</h2>
+<label><input type="checkbox"> 頸枕</label>
+<label><input type="checkbox"> 眼罩</label>
+<label><input type="checkbox"> 口罩</label>
+</div>
+
+<div class="card check"><h2>🧥 冬季衣物</h2>
+<label><input type="checkbox"> 保暖外套、風衣</label>
+<label><input type="checkbox"> 內搭、發熱衣、毛衣</label>
+<label><input type="checkbox"> 長褲</label>
+<label><input type="checkbox"> 厚襪</label>
+<label><input type="checkbox"> 好走的鞋</label>
+<label><input type="checkbox"> 圍巾、手套、毛帽</label>
+<label><input type="checkbox"> 睡衣</label>
+<label><input type="checkbox"> 內衣、內褲</label>
+</div>
+
+<div class="card check"><h2>🎒 隨身物品</h2>
+<label><input type="checkbox"> 錢包</label>
+<label><input type="checkbox"> 行動電源</label>
+<label><input type="checkbox"> 口罩</label>
+<label><input type="checkbox"> 酒精</label>
+<label><input type="checkbox"> 衛生紙、濕紙巾</label>
+<label><input type="checkbox"> 護唇膏、護手霜</label>
+<label><input type="checkbox"> 雨傘</label>
+<label><input type="checkbox"> 個人與常用藥品</label>
+</div>
+
+<div class="card"><h2>⚖️ 回程重量</h2><p>托運 <b>23 kg / 1件</b>　｜　隨身 <b>7 kg / 1件</b></p><p>托運：<input id="kg2" class="smallinput" inputmode="decimal"> kg　隨身：<input id="carrykg" class="smallinput" inputmode="decimal"> kg</p></div>
+</section>
+<section id="promise" class="page"><button class="back" onclick="go('more')">‹ 返回更多資訊</button><h1>行前宣誓 🤝</h1><div class="card"><ol style="padding-left:23px;line-height:1.65;margin:0"><li style='margin-bottom:10px'>不吵架，當 YES MAN YES WOMAN 的七天</li><li style='margin-bottom:10px'>多說「出來玩好幸福，我現在好開心」</li><li style='margin-bottom:10px'>突發狀況，只解決，不責怪</li><li style='margin-bottom:10px'>不脫隊，至少兩人行動，事先告知</li><li style='margin-bottom:10px'>出去吃飯，不嫌貴、不抱怨</li><li style='margin-bottom:10px'>到景點玩，不掃興、不生氣</li><li style='margin-bottom:10px'>購物消費不能說好貴，要說物價驚人！</li><li style='margin-bottom:10px'>意見分歧先討論溝通，接受投票和猜拳結果</li><li style='margin-bottom:10px'>接受可能會需要排隊、等待的情況</li><li style='margin-bottom:10px'>接受旅伴有自己的想法，安全情況下，都予以尊重、陪伴且不反駁</li><li style='margin-bottom:10px'>累了想休息，絕對要說，行程彈性互相配合</li><li style='margin-bottom:10px'>臨時想逛的，絕對要說，行程彈性互相配合</li><li style='margin-bottom:10px'>餓了想吃啥，絕對要說，行程彈性互相配合</li><li style='margin-bottom:10px'>隨時補充水份，不憋尿，看到廁所就要上</li></ol></div></section>
+
+<section id="tips" class="page"><button class="back" onclick="go('more')">‹ 返回更多資訊</button><h1>旅遊提醒 💡</h1><div class="card"><p>📶 確認 eSIM／網路與離線地圖</p><p>💳 Apple Pay、信用卡與交通卡準備好</p><p>🌦️ 出發前確認東京、鎌倉、箱根天氣</p><p>🍁 每天查看紅葉／黃葉實況</p><p>🚢 箱根當天確認海賊船、纜車運行</p><p>🧾 退稅商品與護照集中管理</p><p>🧳 回程前一晚先秤行李，預留購物重量</p><p>⏰ 預約景點與包車前一天再次確認</p></div></section>
+
+
+<section id="refs" class="page"><button class="back" onclick="go('more')">‹ 返回更多資訊</button><h1>參考網站 🌐</h1><div class="card">
+<div class="linkrow"><span>🍁</span><div><a href="https://n-kishou.com/corp/news-contents/autumn/" target="_blank">2026紅葉黃葉最前線</a><small>日本氣象株式會社・紅葉／黃葉資訊</small></div></div>
+<div class="linkrow"><span>🍽️</span><div><a href="https://tabelog.com/" target="_blank">Tabelog 日本美食指南</a><small>餐廳搜尋、評價與營業資訊</small></div></div>
+<div class="linkrow"><span>🚢</span><div><a href="https://www.hakonenavi.jp/" target="_blank">箱根海賊船、纜車即時運行狀況</a><small>箱根當日交通與運行資訊</small></div></div>
+<div class="linkrow"><span>🌃</span><div><a href="https://tcv.roppongihills.com/en/" target="_blank">六本木展望台營業／購票</a><small>DAY 1｜Tokyo City View</small></div></div>
+<div class="linkrow"><span>🌇</span><div><a href="https://d1eqgmyrxsmh50.cloudfront.net/sky/ticket/" target="_blank">SHIBUYA SKY 購票</a><small>DAY 5｜展望台預約</small></div></div>
+</div></section>
+<section id="flight" class="page"><button class="back" onclick="go('more')">‹ 返回更多資訊</button><h1>航班資訊 ✈️</h1>
+<div class="card"><div class="ey">去程｜12 / 01 TUE</div><h2 style="margin:8px 0">CI0102</h2><p><strong>08:00　高雄 KHH → 12:20　東京成田 NRT</strong></p><p>🏢 高雄小港第一航廈出發</p><p>💺 座位｜爸 42A　媽 43A　姊 43B　弟 42B</p></div>
+<div class="card"><div class="ey">回程｜12 / 07 MON</div><h2 style="margin:8px 0">CI0127</h2><p><strong>18:25　東京成田 NRT → 22:05　高雄 KHH</strong></p><p>🏢 東京成田第二航廈出發</p><p>💺 座位｜待 CHECK-IN 劃位</p></div>
+</section>
+
+<section id="memo" class="page"><div class="ey">MEMO</div><h1>備忘錄 📝</h1><div class="card"><h2>旅行共用筆記</h2><textarea id="memo1" placeholder="想買的東西、臨時改行程、集合時間、要記得的事……"></textarea></div><div class="card"><h2>購物／伴手禮</h2><textarea id="memo2" placeholder="幫誰買、在哪裡買、價格……"></textarea></div><div class="card"><h2>旅行成員留言</h2><textarea id="memo3" placeholder="大家都可以在這裡留下備忘……"></textarea></div><p class="muted">內容會儲存在這台手機的瀏覽器中。</p></section>
+</main><nav><button class="on" onclick="go('home',this)"><b>🏠</b>首頁</button><button onclick="go('days',this)"><b>📅</b>行程</button><button onclick="go('map',this)"><b>🗺️</b>地圖</button><button onclick="go('memo',this)"><b>📝</b>備忘錄</button></nav><script>
+function go(id,el){
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+  const page=document.getElementById(id);
+  if(page) page.classList.add('active');
+  document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));
+  if(el && el.tagName) el.classList.add('on');
+  window.scrollTo(0,0);
+}
+const daysbox=document.getElementById('daysbox');
+const daydetail=document.getElementById('daydetail');
+const placebox=document.getElementById('placebox');
+const D=[
+{date:"12/01",title:"HELLO TOKYO!",route:"高雄 → 成田 → 銀座 → 六本木",note:"若入境延誤，縮短銀座散步，保留六本木夜景。",items:[["08:00–12:20","✈️ 高雄小港 → 東京成田"],["14:00–16:00","🚗 成田機場 → 銀座"],["16:00–17:00","🏨 多美迎入住・休息"],["17:00–17:30","🚶 銀座散步"],["17:30–19:00","🍽️ GINZA SIX 真田"],["19:00–20:00","🚇 銀座 → 六本木"],["20:00–22:00","🌃 六本木之丘 Tokyo City View"],["22:00–22:30","🚇 返回銀座"],["22:30–23:00","🍜 夜鳴きそば"],["23:00～","♨️ 泡湯・休息"]]},
+{date:"12/02",title:"鎌倉一日遊",route:"銀座 → 鎌倉 → 江之島 → 銀座",note:"冬季日落較早，下午優先保留湘南海岸與江之島。",items:[["07:30–09:30","☀️ 起床・早餐・準備"],["09:30–10:30","🚗 銀座 → 鎌倉"],["10:30–12:30","⛩️ 鶴岡八幡宮・小町通"],["12:30–14:00","🗿 高德院・鎌倉大佛"],["14:00–15:00","🌊 湘南海岸・鎌倉高校前"],["15:00–17:00","🏝️ 江之島"],["17:00–18:30","🚗 返回銀座"],["18:30～","🏨 休息・銀座晚餐／購物"]]},
+{date:"12/03",title:"HELLO AGAIN, HAKONE",route:"銀座 → 箱根神社 → 大涌谷 → 強羅",note:"翠雲晚餐、早餐與抹茶服務時間以入住當日確認為準。",items:[["08:00–09:00","🍳 早餐"],["09:00–09:30","🧳 退房・集合"],["09:30–11:30","🚗 銀座 → 箱根"],["11:30–13:00","⛩️ 箱根神社・元箱根"],["13:00–14:00","🚢 海賊船 → 桃源台"],["14:00–15:15","🌋 大涌谷"],["15:15–15:45","🚗 前往強羅"],["16:00","🏨 翠雲入住"],["16:30–17:00","🍵 抹茶 ※當日確認"],["17:00–18:30","♨️ 泡湯・休息"],["18:30–20:00","🍱 會席料理 ※入住確認"],["20:00–22:00","🌙 飯店散步・泡湯"],["22:00","🍜 宵夜拉麵"]]},
+{date:"12/04",title:"SLOW IN HAKONE",route:"強羅 → 雕刻之森 → 箱根湯本 → 新宿",note:"如果雕刻之森停留較久，就縮短箱根湯本站商店街。",items:[["08:00–09:00","🍳 早餐"],["09:00–10:30","♨️ 最後泡湯"],["10:30–11:00","🧳 整理・退房"],["11:20–12:00","🌿 強羅公園"],["12:00–13:00","🍴 午餐"],["13:00–13:30","🚗 前往美術館"],["13:30–15:00","🎨 箱根雕刻之森美術館"],["15:00–16:30","🚗 前往箱根湯本"],["16:30–17:30","🛍️ 商店街・點心"],["17:30–19:30","🚗 箱根 → 新宿"],["19:30–20:00","🏠 MIMARU 入住"],["20:00～","🍴 晚餐・休息"]]},
+{date:"12/05",title:"TOKYO AUTUMN DAY",route:"神宮外苑 → 澀谷 → SHIBUYA SKY",note:"SHIBUYA SKY 時段以實際訂票為準；12月初日落較早。",items:[["08:00–09:00","🍳 早餐"],["09:00–09:30","🚇 前往神宮外苑"],["09:30–11:00","🍂 明治神宮外苑銀杏大道"],["12:00–14:00","🍴 午餐"],["14:00–14:30","🚇 前往澀谷"],["14:30–15:30","🎮 Nintendo TOKYO"],["15:30–15:45","🚦 澀谷十字路口"],["15:45–17:30","🌇 SHIBUYA SKY"],["17:30–20:00","🍴 晚餐・澀谷購物"],["20:00～","🚇 返回新宿"]]},
+{date:"12/06",title:"OLD TOKYO",route:"淺草 → 上野 → 阿美橫町 → 新宿",note:"東京最後一個完整日，不需要把所有景點塞滿。",items:[["08:00–09:00","🍳 早餐"],["09:00–10:00","🚇 新宿 → 淺草"],["10:00–12:00","⛩️ 淺草寺・仲見世"],["12:00–13:30","🍴 午餐"],["13:30–14:00","🚇 淺草 → 上野"],["14:00–15:00","🍡 みはし"],["15:00–17:00","🌳 上野公園"],["17:00–19:00","🍴 晚餐"],["19:00–20:00","🛍️ 阿美橫町"],["20:00–21:00","🏃 ALPEN TOKYO"],["21:00～","🏠 返回飯店"]]},
+{date:"12/07",title:"ONE LAST DAY",route:"西新宿 → 成田 → 高雄",note:"最後一天以悠閒散步與整理行李為主，14:00 左右搭車前往成田。",items:[["08:00–10:00","🍳 早餐"],["10:00–11:00","🧳 整理・退房・寄放行李"],["11:00–12:00","🌳 新宿中央公園"],["12:00–13:00","🛍️ 新宿購物"],["13:00–14:00","🧳 回飯店取行李・集合"],["14:00–15:30","🚗 新宿 → 成田"],["15:30–18:20","✈️ 報到・退稅／最後購物"],["18:25–22:05","✈️ 成田 → 高雄"]]}
+];
+function renderDays(){daysbox.innerHTML=D.map((d,i)=>`<div class=daycard onclick="showDay(${i})"><div class=dayhead><div><span class=daynum>DAY ${String(i+1).padStart(2,'0')}｜${d.date}</span><br><span>${d.title}</span></div><span>›</span></div><div class=route>${d.route}</div></div>`).join('')}
+function showDay(i){let d=D[i];daydetail.innerHTML=`<div class=card><button class=back onclick="daydetail.innerHTML=''">‹ 收起</button><span class=badge>DAY ${String(i+1).padStart(2,'0')} · ${d.date}</span><h2 style="margin-top:10px">${d.title}</h2><p class=route>${d.route}</p><div class=tl>${d.items.map(x=>`<div class=t>${x[0]}</div><div class=i>${x[1]}</div>`).join('')}</div><p class=notice>💡 ${d.note}</p></div>`;setTimeout(()=>daydetail.scrollIntoView({behavior:'smooth',block:'start'}),50)}
+renderDays();
+
+const P={
+"住宿":[["多美迎 PREMIUM 銀座","銀座｜12/01–03"],["雪月花別邸 翠雲","箱根・強羅｜12/03–04"],["MIMARU 東京 新宿 WEST","西新宿｜12/04–07"]],
+"景點":[["六本木之丘 Tokyo City View","六本木"],["鶴岡八幡宮","鎌倉"],["高德院・鎌倉大佛","鎌倉"],["鎌倉高校前","湘南"],["江之島","湘南"],["箱根神社","元箱根"],["大涌谷","箱根"],["強羅公園","箱根"],["箱根雕刻之森美術館","箱根"],["明治神宮外苑銀杏大道","東京"],["SHIBUYA SKY","澀谷"],["淺草寺","淺草"],["上野公園","上野"],["新宿中央公園","西新宿"]],
+"飲食":[
+["銀座 GINZA SIX 真田","銀座｜DAY 1","https://maps.app.goo.gl/5UkCfM4To1mZidYv9"],
+["上野 みはし 上野本店","上野｜甘味處","https://maps.app.goo.gl/J8P8ToyPZLPPcHy76"],
+["淺草今半本店","淺草｜壽喜燒","https://maps.app.goo.gl/mdcveS7NJ6FRYiw3A"],
+["淺草 御菓子司 亀十","淺草｜銅鑼燒","https://maps.app.goo.gl/4gcLRktnUKyRGqd3A"],
+["煎豆ほていや中塚商店","淺草｜仙貝老店","https://maps.app.goo.gl/h77R5qgehjsqAVnY8"]
+],
+"購物":[["GINZA SIX","銀座"],["小町通","鎌倉"],["箱根湯本站商店街","箱根"],["Nintendo TOKYO","澀谷"],["阿美橫町","上野"],["ALPEN TOKYO","新宿・運動用品"],["伊勢丹新宿店","新宿"],["新宿高島屋 Times Square","新宿"],["Hands 新宿店","新宿"]]
+};
+function gmap(q){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q)}
+function places(k,el){document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('sel'));if(el)el.classList.add('sel');placebox.innerHTML=P[k].map(x=>`<div class=place><b>${x[0]}</b><br><span class=muted>${x[1]}</span><br><a class=mapbtn href="${x[2]||gmap(x[0])}" target="_blank">📍 Google Maps</a></div>`).join('')}
+places('住宿');
+document.querySelectorAll('#packing input[type=checkbox]').forEach((x,i)=>{x.checked=localStorage['pack'+i]=='1';x.onchange=()=>localStorage['pack'+i]=x.checked?'1':'0'});
+['memo1','memo2','memo3','kg2','carrykg'].forEach(id=>{let e=document.getElementById(id);if(e){e.value=localStorage[id]||'';e.oninput=()=>localStorage[id]=e.value}});
+
+(function(){let now=new Date(),start=new Date('2026-12-01T00:00:00+09:00'),end=new Date('2026-12-08T00:00:00+09:00'),el=document.getElementById('tripstatus');if(!el)return;if(now<start){let n=Math.ceil((start-now)/86400000);el.textContent=`✈️ 距離日本旅行約 ${n} 天`;}else if(now<end){let n=Math.floor((now-start)/86400000)+1;el.innerHTML=`<span class=todaytag>旅行中 · DAY ${n}</span>`;}else el.textContent='♡ TOKYO · KAMAKURA · HAKONE';})();
+
+const HERO=['photos/travel_01.jpg', 'photos/travel_02.jpg', 'photos/travel_03.jpg', 'photos/travel_04.jpg', 'photos/travel_05.jpg', 'photos/travel_06.jpg', 'photos/travel_07.jpg', 'photos/travel_08.jpg', 'photos/travel_09.jpg', 'photos/travel_10.jpg', 'photos/travel_11.jpg', 'photos/travel_12.jpg', 'photos/travel_13.jpg', 'photos/travel_14.jpg', 'photos/travel_15.jpg', 'photos/travel_16.jpg', 'photos/travel_17.jpg', 'photos/travel_18.jpg'];
+let heroIndex=0, heroTimer;
+function showHero(i){
+  const img=document.getElementById('heroimg'), dots=document.getElementById('herodots');
+  if(!img||!HERO.length)return;
+  heroIndex=(i+HERO.length)%HERO.length;
+  img.style.opacity=.25;
+  setTimeout(()=>{img.src=HERO[heroIndex];img.onload=()=>img.style.opacity=1;},120);
+  dots.innerHTML=HERO.map((_,j)=>`<span class="dot ${j===heroIndex?'on':''}"></span>`).join('');
+}
+function startHero(){clearInterval(heroTimer);heroTimer=setInterval(()=>showHero(heroIndex+1),3800)}
+showHero(0);startHero();
+let hx=0;const hero=document.getElementById('hero');
+if(hero){hero.addEventListener('touchstart',e=>hx=e.touches[0].clientX,{passive:true});hero.addEventListener('touchend',e=>{let dx=e.changedTouches[0].clientX-hx;if(Math.abs(dx)>35){showHero(heroIndex+(dx<0?1:-1));startHero();}},{passive:true});}
+
+if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
+</script></body></html>

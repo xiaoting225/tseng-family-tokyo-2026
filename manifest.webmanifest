@@ -1,0 +1,11 @@
+{
+  "name": "曾家豪宅東京之旅",
+  "short_name": "曾家東京之旅",
+  "description": "2026 東京・鎌倉・箱根家庭旅行手冊",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f1e7",
+  "theme_color": "#f7f1e7",
+  "lang": "zh-Hant"
+}

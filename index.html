@@ -16,13 +16,36 @@
 .notice{border-left:3px solid var(--accent);padding:8px 11px;background:#fff8ef;border-radius:8px;font-size:13px}
 .todaytag{display:inline-block;background:var(--accent);color:white;border-radius:99px;padding:4px 8px;font-size:11px}
 
-.hero{position:relative;margin:12px 0 16px;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#e9e0d3;aspect-ratio:16/10}
+.hero{position:relative;margin:12px 0 16px;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#e9e0d3;aspect-ratio: 3 / 46/10}
 .hero img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .35s ease}
 .herograd{position:absolute;inset:auto 0 0;padding:34px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.45));color:white;font-size:12px;letter-spacing:.08em}
 .dots{position:absolute;right:12px;bottom:12px;display:flex;gap:5px}.dot{width:6px;height:6px;border-radius:50%;background:#ffffff80}.dot.on{background:#fff}
 .linkrow{display:flex;gap:10px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line)}
 .linkrow:last-child{border-bottom:0}.linkrow a{color:var(--ink);font-weight:700;text-decoration:none}.linkrow small{display:block;color:var(--muted);margin-top:3px}
+
+.photo9card{overflow:hidden}.upload9{display:block;text-align:center;padding:13px 14px;border:1.5px dashed #9b7556;border-radius:14px;margin:12px 0;cursor:pointer;font-weight:700;color:#604b3a;background:#fbf7ef}.photo9grid{aspect-ratio: 3 / 4;width:100%;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:3px;background:#e8dfd2;border-radius:14px;overflow:hidden}.photo9grid img{width:100%;height:100%;object-fit:cover;display:block}.photo9empty{grid-column:1/4;grid-row:1/4;display:flex;align-items:center;justify-content:center;text-align:center;color:#8a8178;font-size:14px;line-height:1.6}.photo9actions{display:flex;gap:10px;margin-top:12px}.photo9actions button{flex:1;border:0;border-radius:12px;padding:12px 8px;font-weight:700;background:#29453c;color:#fff}.photo9actions button:last-child{background:#e9e0d4;color:#594a3e}.photo9actions button:disabled{opacity:.45}
 </style><link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+
+<style>
+.photo9grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:0!important;
+  overflow:hidden;
+  background:transparent!important;
+}
+.photo9grid img{
+  width:100%!important;
+  aspect-ratio:3/4!important;
+  height:auto!important;
+  object-fit:cover!important;
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+}
+</style>
 </head><body><main>
 <section id="home" class="page active"><div class="ey">DECEMBER 2026 · 7天6夜</div><h1>曾家豪宅東京之旅 🇯🇵</h1><p class="muted">2026.12.01 — 12.07</p><div class="hero" id="hero"><img id="heroimg" alt="東京・鎌倉・箱根旅行照片"><div class="herograd">WINTER DAYS IN JAPAN<div class="dots" id="herodots"></div></div></div><p id="tripstatus" class="muted"></p><div class="card"><h2>🗼 DAY 01｜今天行程</h2><div class="tl"><div class="t">08:00</div><div class="i">✈️ 小港 → 成田</div><div class="t">14:00</div><div class="i">🚗 成田 → 銀座</div><div class="t">16:00</div><div class="i">🏨 入住・休息</div><div class="t">17:30</div><div class="i">🍽️ GINZA SIX 真田</div><div class="t">20:00</div><div class="i">🌃 六本木之丘展望台</div><div class="t">22:30</div><div class="i">🍜 宵夜 → ♨️ 泡湯</div></div></div><div class="grid"><div class="btn" onclick="go('days')">📅<br>七天行程</div><div class="btn" onclick="go('more')">💡<br>旅遊資訊</div><div class="btn" onclick="go('map')" style="grid-column:1/-1">🗺️<br>地點</div></div></section>
 <section id="days" class="page"><div class="ey">7 DAYS</div><h1>每日行程 📅</h1><div class="card" id="daysbox"></div><div id="daydetail"></div></section><section id="map" class="page"><div class="ey">MAP</div><h1>地點 🗺️</h1>
@@ -104,7 +127,7 @@
 <div class="card"><div class="ey">回程｜12 / 07 MON</div><h2 style="margin:8px 0">CI0127</h2><p><strong>18:25　東京成田 NRT → 22:05　高雄 KHH</strong></p><p>🏢 東京成田第二航廈出發</p><p>💺 座位｜待 CHECK-IN 劃位</p></div>
 </section>
 
-<section id="memo" class="page"><div class="ey">MEMO</div><h1>備忘錄 📝</h1><div class="card"><h2>旅行共用筆記</h2><textarea id="memo1" placeholder="想買的東西、臨時改行程、集合時間、要記得的事……"></textarea></div><div class="card"><h2>購物／伴手禮</h2><textarea id="memo2" placeholder="幫誰買、在哪裡買、價格……"></textarea></div><div class="card"><h2>旅行成員留言</h2><textarea id="memo3" placeholder="大家都可以在這裡留下備忘……"></textarea></div><p class="muted">內容會儲存在這台手機的瀏覽器中。</p></section>
+<section id="memo" class="page"><div class="ey">MEMO</div><h1>備忘錄 📝</h1><div class="card"><h2>旅行筆記</h2><textarea id="memo1" placeholder="想買的東西、臨時改行程、集合時間、要記得的事……"></textarea></div><div class="card"><h2>購物清單</h2><textarea id="memo2" placeholder="幫誰買、在哪裡買、價格……"></textarea></div><div class="card photo9card"><h2>旅行九宮格 📷</h2><p class="muted">一次選擇最多 9 張照片，相片3:4比例佳。</p><label class="upload9" for="photo9input">＋ 選擇照片</label><input id="photo9input" type="file" accept="image/*" multiple hidden><div id="photo9grid" class="photo9grid"><div class="photo9empty">選擇照片後<br>會在這裡產生九宮格</div></div><div class="photo9actions"><button id="photo9save" type="button" disabled>儲存九宮格</button><button id="photo9clear" type="button" disabled>清除</button></div></div><p class="muted">旅行筆記與購物清單會儲存在這台手機的瀏覽器中；九宮格照片重新整理頁面後會清除。</p></section>
 </main><nav><button class="on" onclick="go('home',this)"><b>🏠</b>首頁</button><button onclick="go('days',this)"><b>📅</b>行程</button><button onclick="go('map',this)"><b>🗺️</b>地圖</button><button onclick="go('memo',this)"><b>📝</b>備忘錄</button></nav><script>
 function go(id,el){
   document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
@@ -146,9 +169,9 @@ function gmap(q){return 'https://www.google.com/maps/search/?api=1&query='+encod
 function places(k,el){document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('sel'));if(el)el.classList.add('sel');placebox.innerHTML=P[k].map(x=>`<div class=place><b>${x[0]}</b><br><span class=muted>${x[1]}</span><br><a class=mapbtn href="${x[2]||gmap(x[0])}" target="_blank">📍 Google Maps</a></div>`).join('')}
 places('住宿');
 document.querySelectorAll('#packing input[type=checkbox]').forEach((x,i)=>{x.checked=localStorage['pack'+i]=='1';x.onchange=()=>localStorage['pack'+i]=x.checked?'1':'0'});
-['memo1','memo2','memo3','kg2','carrykg'].forEach(id=>{let e=document.getElementById(id);if(e){e.value=localStorage[id]||'';e.oninput=()=>localStorage[id]=e.value}});
+['memo1','memo2','kg2','carrykg'].forEach(id=>{let e=document.getElementById(id);if(e){e.value=localStorage[id]||'';e.oninput=()=>localStorage[id]=e.value}});
 
-(function(){let now=new Date(),start=new Date('2026-12-01T00:00:00+09:00'),end=new Date('2026-12-08T00:00:00+09:00'),el=document.getElementById('tripstatus');if(!el)return;if(now<start){let n=Math.ceil((start-now)/86400000);el.textContent=`✈️ 距離日本旅行約 ${n} 天`;}else if(now<end){let n=Math.floor((now-start)/86400000)+1;el.innerHTML=`<span class=todaytag>旅行中 · DAY ${n}</span>`;}else el.textContent='♡ TOKYO · KAMAKURA · HAKONE';})();
+(function(){let now=new Date(),start=new Date('2026-12-01T00:00:00+09:00'),end=new Date('2026-12-08T00:00:00+09:00'),el=document.getElementById('tripstatus');if(!el)return;if(now<start){let n=Math.ceil((start-now)/86400000);el.textContent=`✈️ 距離日本旅行還有 ${n} 天`;}else if(now<end){let n=Math.floor((now-start)/86400000)+1;el.innerHTML=`<span class=todaytag>旅行中 · DAY ${n}</span>`;}else el.textContent='♡ TOKYO · KAMAKURA · HAKONE';})();
 
 const HERO=['photos/travel_01.jpg', 'photos/travel_02.jpg', 'photos/travel_03.jpg', 'photos/travel_04.jpg', 'photos/travel_05.jpg', 'photos/travel_06.jpg', 'photos/travel_07.jpg', 'photos/travel_08.jpg', 'photos/travel_09.jpg', 'photos/travel_10.jpg', 'photos/travel_11.jpg', 'photos/travel_12.jpg', 'photos/travel_13.jpg', 'photos/travel_14.jpg', 'photos/travel_15.jpg', 'photos/travel_16.jpg', 'photos/travel_17.jpg', 'photos/travel_18.jpg'];
 let heroIndex=0, heroTimer;
@@ -164,6 +187,42 @@ function startHero(){clearInterval(heroTimer);heroTimer=setInterval(()=>showHero
 showHero(0);startHero();
 let hx=0;const hero=document.getElementById('hero');
 if(hero){hero.addEventListener('touchstart',e=>hx=e.touches[0].clientX,{passive:true});hero.addEventListener('touchend',e=>{let dx=e.changedTouches[0].clientX-hx;if(Math.abs(dx)>35){showHero(heroIndex+(dx<0?1:-1));startHero();}},{passive:true});}
+
+
+const photo9Input=document.getElementById('photo9input'),photo9Grid=document.getElementById('photo9grid'),photo9Save=document.getElementById('photo9save'),photo9Clear=document.getElementById('photo9clear');let photo9Urls=[];
+function clearPhoto9(){photo9Urls.forEach(URL.revokeObjectURL);photo9Urls=[];if(photo9Input)photo9Input.value='';if(photo9Grid)photo9Grid.innerHTML='<div class="photo9empty">選擇照片後<br>會在這裡產生九宮格</div>';if(photo9Save)photo9Save.disabled=true;if(photo9Clear)photo9Clear.disabled=true}
+if(photo9Input)photo9Input.addEventListener('change',()=>{photo9Urls.forEach(URL.revokeObjectURL);const files=[...photo9Input.files].filter(f=>f.type.startsWith('image/')).slice(0,9);photo9Urls=files.map(f=>URL.createObjectURL(f));photo9Grid.innerHTML=photo9Urls.map(u=>`<img src="${u}" alt="旅行照片">`).join('');photo9Save.disabled=!files.length;photo9Clear.disabled=!files.length});
+if(photo9Clear)photo9Clear.addEventListener('click',clearPhoto9);
+if(photo9Save)photo9Save.addEventListener('click',async()=>{
+  if(!photo9Urls.length)return;
+  const W=1080,H=1440,cellW=W/3,cellH=H/3,c=document.createElement('canvas');
+  c.width=W;c.height=H;
+  const ctx=c.getContext('2d');
+  const imgs=await Promise.all(photo9Urls.map(u=>new Promise((res,rej)=>{
+    const im=new Image();im.onload=()=>res(im);im.onerror=rej;im.src=u;
+  })));
+  imgs.forEach((im,i)=>{
+    const col=i%3,row=Math.floor(i/3);
+    const targetRatio=cellW/cellH;
+    const srcRatio=im.width/im.height;
+    let sx=0,sy=0,sw=im.width,sh=im.height;
+    if(srcRatio>targetRatio){
+      sw=im.height*targetRatio;
+      sx=(im.width-sw)/2;
+    }else{
+      sh=im.width/targetRatio;
+      sy=(im.height-sh)/2;
+    }
+    ctx.drawImage(im,sx,sy,sw,sh,col*cellW,row*cellH,cellW,cellH);
+  });
+  c.toBlob(blob=>{
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='Tokyo-2026-九宮格-3x4.jpg';
+    a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href),1500);
+  },'image/jpeg',.94);
+});
 
 if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
 </script></body></html>

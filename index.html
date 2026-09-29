@@ -244,7 +244,25 @@ function setRole(n){localStorage.familyRole=n;renderRoles();if(currentUser) $('u
 function owns(x){return currentUser&&x.uid?x.uid===currentUser.uid:x.author===role()}
 function fmtTime(v){if(!v)return '';let d=v.toDate?v.toDate():new Date(v);return d.toLocaleString('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}
 try{firebase.initializeApp(fbConfig);auth=firebase.auth();db=firebase.firestore();firebaseReady=true;auth.onAuthStateChanged(async u=>{currentUser=u;$('identityBox').style.display=u?'block':'none';$('googleLogin').textContent=u?'登出':'Google 登入';renderRoles();if(u){$('uidLine').textContent=`${role()||'尚未選身分'}｜UID ${u.uid}`;setStatus('已登入，正在同步…','warn');startFirestore()}else{stopFirestore();setStatus('請登入以啟用家庭同步');renderAllLocal()}})}catch(e){setStatus('Firebase 無法載入，使用本機資料','warn')}
-$('googleLogin').onclick=async()=>{if(!auth)return;if(currentUser){await auth.signOut();return}try{await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())}catch(e){if(/popup|blocked|unsupported/i.test(e.code||e.message||'')){await auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())}else alert('登入未完成：'+e.message)}};
+$('googleLogin').onclick=async()=>{
+  if(!auth){alert('Firebase 尚未載入完成，請確認網路後重新整理。');return}
+  if(currentUser){await auth.signOut();return}
+  if(location.protocol!=='https:' || location.hostname!=='xiaoting225.github.io'){
+    alert('Google 登入請在正式旅行 App 網址開啟：\nhttps://xiaoting225.github.io/tseng-family-tokyo-2026/\n\nZIP／本機預覽無法完成 Google 登入。');
+    return;
+  }
+  try{
+    const provider=new firebase.auth.GoogleAuthProvider();
+    provider.setCustomParameters({prompt:'select_account'});
+    await auth.signInWithPopup(provider);
+  }catch(e){
+    const code=e.code||'';
+    if(code==='auth/popup-blocked'){alert('瀏覽器阻擋了 Google 登入視窗。請直接用 Safari／Chrome 開啟旅行 App，再按一次「Google 登入」。');}
+    else if(code==='auth/popup-closed-by-user'||code==='auth/cancelled-popup-request'){}
+    else if(code==='auth/unauthorized-domain'){alert('目前網址尚未加入 Firebase 授權網域。請確認是從 xiaoting225.github.io 開啟。');}
+    else alert('Google 登入未完成：'+(e.message||code||'未知錯誤'));
+  }
+};
 function stopFirestore(){unsubs.forEach(f=>{try{f()}catch(e){}});unsubs=[]}
 function col(name){return db.collection('family').doc('tokyo2026').collection(name)}
 function startFirestore(){stopFirestore();if(!db||!currentUser||!role()){renderAllLocal();return}const listen=(name,render)=>{let q=col(name).orderBy('createdAt','asc');let u=q.onSnapshot(s=>{let a=s.docs.map(d=>({id:d.id,...d.data()}));window['_fb_'+name]=a;render(a);setStatus(`已同步｜${role()}`,'on')},e=>{setStatus('已登入｜等待家庭權限開放','warn');render()});unsubs.push(u)};listen('notes',renderNotes);listen('shopping',renderShop);listen('messages',renderMessages);listen('signatures',renderSigns)}

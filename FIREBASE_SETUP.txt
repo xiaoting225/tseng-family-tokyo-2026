@@ -1,0 +1,12 @@
+Firebase v21 setup
+
+此版本已接好 Google Authentication 與 Firestore 即時同步程式。
+目前 Firestore 若仍維持 production 預設 deny all，App 會顯示「等待家庭權限開放」並暫存本機。
+
+下一步：
+1. 將此版本部署到 GitHub Pages。
+2. 爸爸、媽媽、姊姊、弟弟各自 Google 登入一次，App 會顯示 UID。
+3. 收集四個 UID 後，再設定 Firestore Security Rules，只允許這四個 UID。
+4. 完成後，旅行筆記、購物清單、留言板、簽名會即時跨手機同步。
+
+九宮格與行李 checklist 保持本機資料。

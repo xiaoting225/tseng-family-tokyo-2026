@@ -235,7 +235,7 @@ if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').then(r=
 </script><div id="sigModal" class="sigmodal"><div class="sigbox"><h2 id="sigTitle">簽名</h2><canvas id="sigCanvas" width="700" height="420"></canvas><div class="sigactions"><button onclick="clearSig()">清除</button><button onclick="closeSig()">取消</button><button class="sigsave" onclick="saveSig()">確認簽名</button></div></div></div><script>
 const family=['爸爸','媽媽','姊姊','弟弟'];
 let activePerson=null,currentUser=null,auth=null,db=null,unsubs=[],firebaseReady=false;
-const fbConfig={apiKey:'AIzaSyDjcNASfWe_QeLFEZ0rYFN0g-03wNgE08',authDomain:'tseng-family-tokyo-2026.firebaseapp.com',projectId:'tseng-family-tokyo-2026',storageBucket:'tseng-family-tokyo-2026.firebasestorage.app',messagingSenderId:'326456648997',appId:'1:326456648997:web:8c508572dd7d13262566cc'};
+const fbConfig={apiKey:'AIzaSyDjcnNASfWe_QeLFEZ0rYFN0g-03wNgE08',authDomain:'tseng-family-tokyo-2026.firebaseapp.com',projectId:'tseng-family-tokyo-2026',storageBucket:'tseng-family-tokyo-2026.firebasestorage.app',messagingSenderId:'326456648997',appId:'1:326456648997:web:8c508572dd7d13262566cc'};
 const $=id=>document.getElementById(id), esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function role(){return localStorage.familyRole||''}
 function setStatus(text,state=''){ $('syncStatus').innerHTML=`<span class="syncdot ${state}"></span>${esc(text)}` }

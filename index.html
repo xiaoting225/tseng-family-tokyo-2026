@@ -135,7 +135,7 @@
 </section>
 
 <section id="memo" class="page"><div class="ey">MEMO</div><h1>備忘錄 📝</h1><div class="card"><div class="syncbar"><div><b>☁️ 家庭共用</b><div id="syncStatus" class="muted"><span class="syncdot"></span>Firebase 連線中</div></div><button id="googleLogin" type="button">Google 登入</button></div><div id="identityBox" class="identity" style="display:none"><div class="muted">這支手機是誰在使用？</div><div id="roleBar" class="rolebar"></div><div id="uidLine" class="uidline"></div></div></div><div class="card"><h2>旅行筆記</h2><p class="muted">重要資訊、臨時調整或想記住的事情。</p><div class="notecomposer"><textarea id="noteText" placeholder="臨時改行程、集合時間、想記得的事……"></textarea><button id="addNote" type="button">＋ 新增筆記</button></div><div id="notesList" class="noteslist"></div></div><div class="card"><h2>購物清單</h2><div class="shopadd"><input id="shopText" placeholder="想買什麼？"><button id="addShop" type="button">＋</button></div><div id="shopList"></div></div><div class="card"><h2>旅行留言板 💬</h2><p class="muted">旅途中想說的、集合提醒、臨時小事都可以留在這裡。</p><div class="notecomposer messagecomposer"><textarea id="messageText" placeholder="留一句話給大家……"></textarea><button id="addMessage" type="button">＋ 留言</button></div><div id="messagesList" class="messageslist"></div></div><div class="card photo9card"><h2>旅行九宮格 📷</h2><p class="muted">一次選擇最多 9 張照片，相片3:4比例佳。</p><label class="upload9" for="photo9input">＋ 選擇照片</label><input id="photo9input" type="file" accept="image/*" multiple hidden><div id="photo9grid" class="photo9grid"><div class="photo9empty">選擇照片後<br>會在這裡產生九宮格</div></div><div class="photo9actions"><button id="photo9save" type="button" disabled>儲存九宮格</button><button id="photo9clear" type="button" disabled>清除</button></div></div><p class="muted">九宮格只在這台手機處理，不會上傳 Firebase。</p></section>
-</main><nav><button class="on" onclick="go('home',this)"><b>🏠</b>首頁</button><button onclick="go('days',this)"><b>📅</b>行程</button><button onclick="go('map',this)"><b>🗺️</b>地圖</button><button onclick="go('memo',this)"><b>📝</b>備忘錄</button></nav><script src="https://www.gstatic.com/firebasejs/12.2.1/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/12.2.1/firebase-auth-compat.js"></script><script src="https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore-compat.js"></script><script>
+</main><nav><button class="on" onclick="go('home',this)"><b>🏠</b>首頁</button><button onclick="go('days',this)"><b>📅</b>行程</button><button onclick="go('map',this)"><b>🗺️</b>地圖</button><button onclick="go('memo',this)"><b>📝</b>備忘錄</button></nav><script src="https://www.gstatic.com/firebasejs/12.4.0/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/12.4.0/firebase-auth-compat.js"></script><script src="https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore-compat.js"></script><script>
 function go(id,el){
   document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
   const page=document.getElementById(id);
@@ -231,7 +231,7 @@ if(photo9Save)photo9Save.addEventListener('click',async()=>{
   },'image/jpeg',.94);
 });
 
-if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
+if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').then(r=>r.update()).catch(()=>{});
 </script><div id="sigModal" class="sigmodal"><div class="sigbox"><h2 id="sigTitle">簽名</h2><canvas id="sigCanvas" width="700" height="420"></canvas><div class="sigactions"><button onclick="clearSig()">清除</button><button onclick="closeSig()">取消</button><button class="sigsave" onclick="saveSig()">確認簽名</button></div></div></div><script>
 const family=['爸爸','媽媽','姊姊','弟弟'];
 let activePerson=null,currentUser=null,auth=null,db=null,unsubs=[],firebaseReady=false;
@@ -252,15 +252,18 @@ $('googleLogin').onclick=async()=>{
     return;
   }
   try{
+    setStatus('正在開啟 Google 登入…','warn');
     const provider=new firebase.auth.GoogleAuthProvider();
     provider.setCustomParameters({prompt:'select_account'});
-    await auth.signInWithPopup(provider);
+    const result=await auth.signInWithPopup(provider);
+    if(result&&result.user)setStatus('Google 登入成功','on');
   }catch(e){
-    const code=e.code||'';
-    if(code==='auth/popup-blocked'){alert('瀏覽器阻擋了 Google 登入視窗。請直接用 Safari／Chrome 開啟旅行 App，再按一次「Google 登入」。');}
-    else if(code==='auth/popup-closed-by-user'||code==='auth/cancelled-popup-request'){}
-    else if(code==='auth/unauthorized-domain'){alert('目前網址尚未加入 Firebase 授權網域。請確認是從 xiaoting225.github.io 開啟。');}
-    else alert('Google 登入未完成：'+(e.message||code||'未知錯誤'));
+    console.error('Google sign-in error',e);
+    const code=e.code||'unknown';
+    const msg=e.message||'未知錯誤';
+    setStatus('登入失敗｜'+code,'warn');
+    if(code==='auth/popup-closed-by-user'||code==='auth/cancelled-popup-request') return;
+    alert('Google 登入失敗\n\n錯誤代碼：'+code+'\n\n'+msg+'\n\n請把這個畫面截圖給我，我可以直接判斷是哪一個 Firebase 設定。');
   }
 };
 function stopFirestore(){unsubs.forEach(f=>{try{f()}catch(e){}});unsubs=[]}
